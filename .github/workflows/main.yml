@@ -1,0 +1,49 @@
+name: Node.js CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+
+      - name: Setup Node 20 environment
+        uses: actions/setup-node@v3.9.1
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build project
+        run: yarn build
+
+      - name: Run unit tests
+        run: yarn test
+        # Report JUnit test results for unit tests
+        # Assuming unit tests produce JUnit XML files in the 'reports' directory
+        
+      - name: Upload unit test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: unit-test-results
+          path: reports/
+
+      - name: Run integration tests
+        run: yarn test:e2e
+        # Report JUnit test results for integration tests
+        # Assuming integration tests produce JUnit XML files in the 'e2e-reports' directory
+      
+      - name: Upload integration test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: integration-test-results
+          path: e2e-reports/
+
+      - name: Report JUnit test results
+        uses: actions/junit-report@v2
+        with:
+          test_results: reports/*.xml,e2e-reports/*.xml
