@@ -27,7 +27,7 @@ jobs:
         # Assuming unit tests produce JUnit XML files in the 'reports' directory
         
       - name: Upload unit test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v1.1.0
         with:
           name: unit-test-results
           path: reports/
@@ -38,12 +38,12 @@ jobs:
         # Assuming integration tests produce JUnit XML files in the 'e2e-reports' directory
       
       - name: Upload integration test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v1.1.0
         with:
           name: integration-test-results
           path: e2e-reports/
 
-      - name: Report JUnit test results
-        uses: actions/junit-report@v2
-        with:
-          test_results: reports/*.xml,e2e-reports/*.xml
+      # - name: Report JUnit test results
+      #   uses: actions/junit-report@v2
+      #   with:
+      #     test_results: reports/*.xml,e2e-reports/*.xml
