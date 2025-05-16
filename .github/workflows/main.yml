@@ -32,10 +32,10 @@ jobs:
       #     name: unit-test-results
       #     path: reports/
 
-      # - name: Run integration tests
-      #   run: yarn test:e2e
-      #   # Report JUnit test results for integration tests
-      #   # Assuming integration tests produce JUnit XML files in the 'e2e-reports' directory
+      - name: Run integration tests
+        run: yarn test:e2e
+        # Report JUnit test results for integration tests
+        # Assuming integration tests produce JUnit XML files in the 'e2e-reports' directory
       
       # - name: Upload integration test results
       #   uses: actions/upload-artifact@v1.1.0
