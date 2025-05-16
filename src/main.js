@@ -9,10 +9,10 @@ new App({
     // or an array of bullet points
 
     // What do you associate with the term 'CI/CD'?
-    associations: ["Ehm, what?"],
+    associations: ["Automated deployment"],
     // Which CI/CD tools do you use in your project?
-    tools: "Jenkins, maybe?",
+    tools: "Github Actions",
     // What do you want to learn in this workshop?
-    expectations: ["what you are talking about"],
+    expectations: ["CICD general terms and concepts"],
   },
 });
