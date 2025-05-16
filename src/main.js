@@ -13,6 +13,6 @@ new App({
     // Which CI/CD tools do you use in your project?
     tools: "Github Actions",
     // What do you want to learn in this workshop?
-    expectations: ["CICD general terms and concepts"],
+    expectations: ["CICD general terms and concepts. --Added change to push--"],
   },
 });
